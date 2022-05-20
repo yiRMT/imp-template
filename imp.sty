@@ -1,0 +1,149 @@
+% imp.sty
+% 研究発表会のレジュメ・班別ミーティング資料用パッケージ
+
+% Copyright (C) 2022 Intelligent Media Processing Group - OPU/OMU
+% Released under the MIT licence
+
+% =======================================================================
+% Identification
+% =======================================================================
+
+% 対応するフォーマットの指定．ここではLualatex-jaを使うためにLaTeX2eとする．
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{imp}[2019/01/01]
+
+% =======================================================================
+% Preliminary declarations
+% =======================================================================
+
+% 上下左右の余白の設定
+\RequirePackage[top=25truemm,bottom=20truemm,left=15truemm,right=15truemm]{geometry}
+
+% `\section'や`\subsection'の文字の大きさや太字を変更
+\RequirePackage{titlesec}
+% デフォルトより少し大きい
+\titleformat*{\section}{\Large\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+
+% 行間の調整
+\RequirePackage{setspace}
+% ページ全体の行間
+\setstretch{1}
+% 図と図の間のスペース
+\setlength\floatsep{1pt}
+% 図と本文の間のスペース
+\setlength\textfloatsep{1pt}
+% 途中に出力される図と本文のスペース
+\setlength\intextsep{1pt}
+% 図とキャプションの間のスペース
+\setlength\abovecaptionskip{1pt}
+
+% pdf内でのアンダースコアの検索を可能にするパッケージ
+% fontencだけだと，文字がbitmapになり汚くなるので，lmodernでフォントをきれいにする．
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+
+% ダミーテキスト
+\RequirePackage{lipsum}
+
+% =======================================================================
+% Options
+% =======================================================================
+
+\DeclareOption{presentation}{\twocolumn}
+\DeclareOption{meeting}{\onecolumn}
+\ExecuteOptions{presentation, meeting}
+\ProcessOptions\relax
+
+% =======================================================================
+% More declarations
+% =======================================================================
+
+% マクロ
+\def\jkjikken#1{情報工学実験I\hspace{-.1em}I 発表資料 #1}
+
+% 期間
+\def\term#1{\def\@term{#1}}\term{}
+% 研究班
+\def\group#1{\def\@group{#1}}\group{}
+% 学年
+\def\grade#1{\def\@grade{#1}}\grade{}
+
+
+\renewcommand{\maketitle}{\par
+  \begingroup
+    \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
+    \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
+    \long\def\@makefntext##1{\advance\leftskip 3\zw
+      \parindent 1\zw\noindent
+      \llap{\@textsuperscript{\normalfont\@thefnmark}\hskip0.3\zw}##1}%
+    \if@twocolumn
+      \ifnum \col@number=\@ne
+        \@maketitle
+      \else
+        \twocolumn[\@maketitle]%
+      \fi
+    \else
+      \newpage
+      \global\@topnum\z@  % Prevents figures from going at top of page.
+      \@maketitle
+    \fi
+    \plainifnotempty
+    \@thanks
+  \endgroup
+  \setcounter{footnote}{0}%
+  \global\let\thanks\relax
+  \global\let\maketitle\relax
+  \global\let\@thanks\@empty
+  \global\let\@author\@empty
+  \global\let\@date\@empty
+  \global\let\@title\@empty
+  \global\let\title\relax
+  \global\let\author\relax
+  \global\let\date\relax
+  \global\let\and\relax
+}
+\def\@maketitle{%
+  \newpage\null
+  \vskip 2em
+  \begin{center}%
+    \let\footnote\thanks
+    {\LARGE 
+      \vspace{-15truemm}
+
+      % タイトル上部
+      {\normalsize
+          % 左部分
+          \@term 研究発表資料\ \@date
+          \hfill
+          % 右部分
+          \@group\ \@grade\ \@author
+      }
+      
+      \vspace{-5truemm}
+      \hrulefill % 横線を入れる
+      \vspace{-1truemm}
+
+      % タイトル部
+      {\bfseries
+        \@title
+      }
+
+      \vspace{-5truemm}
+      \hrulefill % 横線を入れる
+      \vspace{-18truemm}
+      %\@title
+    \par}%
+    \vskip 1.5em
+    {\large
+      \lineskip .5em
+      \begin{tabular}[t]{c}%
+        %\@author
+      \end{tabular}\par}%
+    \vskip 1em
+    %{\large \@date}%
+  \end{center}%
+  \par\vskip 1.5em
+  \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}\vskip1.5em\fi
+}
