@@ -51,10 +51,13 @@
 % Options
 % =======================================================================
 
-\DeclareOption{presentation}{\twocolumn}
-\DeclareOption{meeting}{\onecolumn}
-\ExecuteOptions{presentation, meeting}
+\newif\if@presentation
+\DeclareOption{presentation}{\@presentationtrue}
+\DeclareOption{meeting}{\@presentationfalse}
+\ExecuteOptions{presentation}
 \ProcessOptions\relax
+
+\if@presentation \twocolumn \else \onecolumn \fi
 
 % =======================================================================
 % More declarations
@@ -115,7 +118,11 @@
       % タイトル上部
       {\normalsize
           % 左部分
-          \@term 研究発表資料\ \@date
+          \if@presentation
+            \@term 研究発表資料\ \@date
+          \else
+            \@date
+          \fi
           \hfill
           % 右部分
           \@group\ \@grade\ \@author
