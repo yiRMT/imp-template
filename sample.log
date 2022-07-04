@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2022.2.12)  5 JUL 2022 00:13
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021)  (format=lualatex 2022.2.12)  5 JUL 2022 00:26
  restricted system commands enabled.
  file:line:error style messages enabled.
 **sample.tex
@@ -844,7 +844,7 @@ LaTeX Font Info:    ... okay on input line 69.
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
-* \@twocolumnfalse
+* \@twocolumntrue
 * \@twosidefalse
 * \@mparswitchfalse
 * \@reversemarginfalse
@@ -995,40 +995,24 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 File: ./fig/example.pdf Graphic file (type pdf)
 <use ./fig/example.pdf>
 Package luatex.def Info: ./fig/example.pdf  used on input line 117.
-(luatex.def)             Requested size: 512.14963pt x 307.31987pt.
+(luatex.def)             Requested size: 246.82768pt x 148.0971pt.
 File: ./fig/example.pdf Graphic file (type pdf)
 <use ./fig/example.pdf>
 Package luatex.def Info: ./fig/example.pdf  used on input line 120.
-(luatex.def)             Requested size: 256.07481pt x 153.64503pt.
-
-Overfull \hbox (269.40813pt too wide) in paragraph at lines 117--121
- [][][] 
- []
-
+(luatex.def)             Requested size: 123.41383pt x 74.04855pt.
 <./fig/example2.pdf, id=48, 361.35pt x 216.81pt>
 File: ./fig/example2.pdf Graphic file (type pdf)
 <use ./fig/example2.pdf>
 Package luatex.def Info: ./fig/example2.pdf  used on input line 124.
-(luatex.def)             Requested size: 256.07481pt x 153.64503pt.
+(luatex.def)             Requested size: 123.41383pt x 74.04855pt.
 File: ./fig/example2.pdf Graphic file (type pdf)
 <use ./fig/example2.pdf>
 Package luatex.def Info: ./fig/example2.pdf  used on input line 127.
-(luatex.def)             Requested size: 512.14963pt x 307.31987pt.
-
-Overfull \hbox (6.66666pt too wide) in paragraph at lines 124--128
- [] 
- []
-
-
-LaTeX Warning: Float too large for page by 156.27531pt on input line 130.
+(luatex.def)             Requested size: 246.82768pt x 148.0971pt.
 
 
 Package hyperref Warning: Suppressing empty link on input line 163.
 
-[1
-
-
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
 (Font)              Font shape `JT3/gt/m/n' tried instead on input line 174.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
@@ -1037,8 +1021,12 @@ LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
 (Font)              Font shape `JY3/gt/m/n' tried instead on input line 174.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 9.24713pt on input line 174.
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 196.
 
+Overfull \hbox (10.16873pt too wide) in paragraph at lines 175--176
+[][]$\T1/lmtt/m/n/10 http://konoyonohana.blog.fc2.com/blog-[]entry-[]58.
+ []
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 196.
 Missing character: There is no ˆ (U+02C6) in font lmmi10!
 Missing character: There is no ˆ (U+02C6) in font lmmi10!
 Missing character: There is no ˆ (U+02C6) in font lmmi10!
@@ -1049,25 +1037,29 @@ LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 5.54828pt on input line 209.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
 (Font)              scaled to size 7.3977pt on input line 209.
-(./sample.bbl [2]) [3] [4<./fig/example.pdf><./fig/example2.pdf>] (./sample.aux)
+[1{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+
+
+] (./sample.bbl) [2<./fig/example.pdf><./fig/example2.pdf>] (./sample.aux)
 Package rerunfilecheck Info: File `sample.out' has not changed.
 (rerunfilecheck)             Checksum: 6D79E8EAAEAF47AA7F7C205C7A32061F;1010.
 )
 
 Here is how much of LuaTeX's memory you used:
  18099 strings out of 477802
- 195705,794899 words of node,token memory allocated
- 22833 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 3 glue, 363 kern, 1 glyph, 8904 attribute, 347 glue_spec, 464 attribute_list, 1 write, 72 user_defined nodes
-   avail lists: 1:49,2:46360,3:658,4:357,5:83,6:122,7:4395,8:99,9:1242,10:15,11:69
- 37899 multiletter control sequences out of 65536+600000
+ 305793,794899 words of node,token memory allocated
+ 23471 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 3 glue, 363 kern, 1 glyph, 9126 attribute, 369 glue_spec, 476 attribute_list, 1 write, 78 user_defined, 6 pdf_action nodes
+   avail lists: 1:45,2:76508,3:1147,4:650,5:167,6:202,7:6610,8:103,9:1913,10:23,11:93
+ 37901 multiletter control sequences out of 65536+600000
  103 fonts using 66278495 bytes
- 114i,13n,128p,1744b,729s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 114i,13n,128p,1744b,734s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/local/texlive/2021/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2021/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt8.pfb>
-Output written on sample.pdf (4 pages, 272803 bytes).
+Output written on sample.pdf (2 pages, 274831 bytes).
 
-PDF statistics: 191 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 131072)
+PDF statistics: 188 PDF objects out of 1000 (max. 8388607)
+ 155 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 131072)
  81 words of extra memory for PDF output out of 10000 (max. 100000000)
 
