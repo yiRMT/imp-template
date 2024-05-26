@@ -3,7 +3,6 @@
 % =======================================================================
 % パッケージ読込
 % =======================================================================
-
 % レイアウト関連パッケージ (geometryなど) は `imp.sty' 内で読込
 
 % 研究発表会・ミーテイング資料用パッケージ
@@ -119,17 +118,17 @@
     \begin{figure*}[t]
         \centering
         \subcaptionbox{fig3 \label{fig:daisy}}{
-            \includegraphics[width=\columnwidth]{./fig/example.pdf}
+            \includegraphics[width=\columnwidth]{example.pdf}
         }%普通に並べると横に
         \subcaptionbox{fig4 \label{fig:dull}}{
-            \includegraphics[width=0.5\columnwidth]{./fig/example.pdf}
+            \includegraphics[width=0.5\columnwidth]{example.pdf}
         }
         \\%改行を入れると下の段に移る
         \subcaptionbox{fig5 \label{fig:aa}}{
-            \includegraphics[width=0.5\columnwidth]{./fig/example2.pdf}
+            \includegraphics[width=0.5\columnwidth]{example2.pdf}
         }
         \subcaptionbox{fig6 \label{fig:bb}}{
-            \includegraphics[width=\columnwidth]{./fig/example2.pdf}
+            \includegraphics[width=\columnwidth]{example2.pdf}
         }
         \caption{Wonderful caption Figure~\subref{fig:dull} is fantastic.}
         \label{fig:example}
@@ -238,7 +237,7 @@
     % 参考文献はデフォルトではBibTeXを使用
     \bibliographystyle{junsrt} % 参考文献の表示スタイルを指定．`junsrt', `jplain'などがある．
     {\normalsize % 参考文献のサイズ指定．デフォルトは`\normalsize'．
-        \bibliography{index.bib} % 参考文献リスト(.bibファイル)を読み出す．各自で.bibファイルを作成の上読み出すこと．
+        \bibliography{sample-base} % 参考文献リスト(.bibファイル)を読み出す．各自で.bibファイルを作成の上読み出すこと．
     }
 
 \end{document}
