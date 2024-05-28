@@ -1,36 +1,28 @@
-# 研究発表会・ミーティング用LaTeXテンプレート
-研究発表会の原稿およびミーティングメモのためのLaTeXテンプレートです．以前からIMPで使用しているテンプレートを整理し，レイアウト関連のプリアンブルを一つのスタイルファイルにまとめました．
+# IMProceedings LaTeX Template
 
-## `imp.sty`について
-レイアウト関連の設定をまとめたパッケージです．
-### パッケージの導入
-プリアンブルに
-```
-\usepackage[<options>]{imp}
-```
-と記述することで使うことができます．`<options>`でテンプレートの種類を選択します．
-- `presentation`またはオプション指定なし: 研究発表会の原稿
-- `meeting`: ミーティングメモ
-### 使い方
-タイトルおよびヘッダーの中身は以下のように記述します．出力するには，以下のコマンドに加えて，本文中の出力したい位置で`\maketitle`を記述してください．
-- 研究発表会の原稿
-  ```
-  \term{\zenki}                                 % 資料の種類を記述
-  （\zenki: 前期研究発表資料, \kouki: 後期研究発表資料, \jkjikken: 情報工学実験II)
-  \date{2022年4月1日}                          % 発表日を記述
-  \group{Learning班}                          % 研究班を記述
-  \grade{B4}                                  % 学年を記述
-  \author{知能メディ夫}                         % 氏名を記述
-  \title{発表タイトル / Presentation Title}     % 発表タイトルを記述
-  ```
-- ミーティングメモ
-  ```
-  \date{2022年4月1日}                          % ミーティング日を記述
-  \group{Learning班}                          % 研究班を記述
-  \grade{B4}                                  % 学年を記述
-  \author{知能メディ夫}                         % 氏名を記述
-  \title{Meeting Memo}                        % タイトルを記述
-  ```
+This is a LaTeX template for proceedings of internal research presentations and meeting memos of weekly meetings.
+The template is based on the old template used in IMP, and NLProceedings document class.
 
-## サンプルファイルについて
-ファイル名が`sample.tex`のサンプルファイルを用意しています．`imp.sty`以外のパッケージの使い方なども解説しているので，これを参考にして研究発表会の原稿やミーティングメモを作成してください．
+## Getting Started
+To use the IMProceedings document class, you need to include the following line in your LaTeX document:
+```
+\documentclass[<options>]{improceedings}
+```
+
+### Options
+When using the document class, you can choose the following styles:
+- `presentation` or no option: Manuscript for research presentations
+- `meeting`: Meeting memo
+- `english`: English version of the manuscript
+
+## Sample Files
+
+The repository contains the following sample files:
+- `sample-presentation-ja`: Sample manuscript for research presentations in Japanese
+- `sample-presentation-en`: Sample manuscript for research presentations in English
+- `sample-meeting-ja`: Sample meeting memo in Japanese
+- `sample-meeting-en`: Sample meeting memo in English
+
+## Acknowledgement
+
+Our template is based on the NLProceedings document class under [the MIT License](https://raw.githubusercontent.com/anlp-nenji/nlproceedings/main/LICENSE)

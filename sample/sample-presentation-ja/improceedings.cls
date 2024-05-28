@@ -1,0 +1,1 @@
+../../improceedings.cls

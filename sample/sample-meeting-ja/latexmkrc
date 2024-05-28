@@ -1,0 +1,3 @@
+#!/opt/homebrew/bin/perl
+$latex = 'lualatex';
+$pdf_mode = 4;

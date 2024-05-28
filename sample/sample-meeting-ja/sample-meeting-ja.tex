@@ -1,0 +1,181 @@
+\documentclass[lualatex,meeting]{improceedings}
+
+% パッケージ
+
+% 著者用マクロ
+\newcommand{\pkg}[1]{\textsf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\title{\pkg{IMProceedings}文書クラス サンプル文書（ミーティング用）}
+\date{2024年6月1日}
+\group{Learning班}
+\grade{M1}
+\author{岩下 雄一郎}
+
+\begin{document}
+
+\maketitle
+
+\section{はじめに}
+
+\pkg{IMProceedings}文書クラスは，知能メディア処理研究グループの研究発表会の資料作成のために作成された文書クラスです．
+また，ミーティング資料にも利用できます．
+なお，\pkg{IMProceedings}文書クラスは\pkg{imp}スタイルファイルと互換性がありませんのでご注意ください．
+
+\subsection{文書スタイル}
+
+文書クラスのオプションで文書スタイルを指定することができます．
+\begin{itemize}
+  \item \code{presentation}：研究発表資料用（デフォルト）
+  \item \code{meeting}：ミーティング資料用
+\end{itemize}
+また，\code{english}オプションを指定することで英語での文書作成が可能です．
+
+\section{書体}
+
+\pkg{IMProceedings}文書クラスではLuaLaTeXを用いている場合、和文には原ノ味フォントを使用します．
+英文と数式にはそれぞれTimes系フォントの\pkg{newtxtext}，\pkg{newtxmath}を使用します．
+花文字には\pkg{mathalfa}パッケージを使用します．
+
+\section{ヘッダー情報}
+
+\pkg{IMProceedings}文書クラスでは，1ページ目のヘッダーに著者名，研究班，学年，資料の種類，発表日，発表タイトルを表示します．
+それぞれ\code{author}，\code{group}，\code{grade}，\code{term}，\code{date}，\code{title}コマンドで指定します．
+例えば，本文書のヘッダー情報は以下の通りです．
+\begin{verbatim}
+  \title{\pkg{IMProceedings}文書クラス...}
+  \term{前期研究発表資料}
+  \date{2024年6月1日}
+  \group{Learning班}
+  \grade{M1}
+  \author{岩下 雄一郎}
+\end{verbatim}
+
+\section{表}
+
+表の作成には\LaTeX 標準の環境を使用します．
+表\ref{tab:sample}は\code{table}環境と\code{tabular}環境を用いて作成された表です．
+
+\begin{table}[tbh]
+  \centering
+  \caption{サンプル表}
+  \label{tab:sample}
+  \begin{tabular}{c|c|c}
+    \hline
+    A & B & C \\
+    \hline
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+また，\code{table*}環境を用いることでページ幅いっぱいに表を配置することができます．
+表\ref{tab:sample2}は\code{table*}環境を用いて作成された表です．
+
+\begin{table*}[tbh]
+  \centering
+  \caption{サンプル表2}
+  \label{tab:sample2}
+  \begin{tabular}{c|c|c}
+    \hline
+    A & B & C \\
+    \hline
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    \hline
+  \end{tabular}
+\end{table*}
+
+\section{図}
+
+図の挿入には\code{figure}環境と\code{includegraphics}コマンドを使用します．
+図\ref{fig:sample}は\code{figure}環境と\code{includegraphics}コマンドを用いて挿入された図です．
+
+\begin{figure}[tbh]
+  \centering
+  \includegraphics[width=0.5\columnwidth]{example-image-a}
+  \caption{サンプル図}
+  \label{fig:sample}
+\end{figure}
+
+表と同様に，\code{figure*}環境を用いることでページ幅いっぱいに図を配置することができます．
+
+\begin{figure*}[tbh]
+  \centering
+  \includegraphics[width=0.5\linewidth]{example-image-b}
+  \caption{サンプル図2}
+  \label{fig:sample2}
+\end{figure*}
+
+\section{数式}
+
+数式の表示方法にはインライン数式と番号つきディスプレイ数式と番号なしディスプレイ数式があります．
+インライン数式は\code{\$...\$}で囲みます．
+例えば$Y = XW + b$は\code{\$Y = XW + b\$}と記述します．
+番号つきディスプレイ数式は\code{equation}環境を用いて記述します．
+\begin{equation}
+  Y = XW + b
+\end{equation}
+番号なしディスプレイ数式は\code{equation*}環境（\code{displaymath}環境）を用いるか，\code{\textbackslash [...\textbackslash ]}で囲みます．
+\begin{equation*}
+  Y = XW + b
+\end{equation*}
+
+数式を太字（$\boldsymbol{a}$）で表示するには\code{\textbackslash boldsymbol\{...\}}を用います．
+イタリック体で表示したくない場合（$\mathbf{a}$）は\code{\textbackslash mathbf\{...\}}を用います．
+黒板太字（$\mathbb{R}$）で表示するには\code{\textbackslash mathbb\{...\}}を用います．
+花文字（$\mathscr{L}$）で表示するには\code{\textbackslash mathscr\{...\}}，筆記体（$\mathcal{L}$）で表示するには\code{\textbackslash mathcal\{...\}}を用います．
+
+\section{引用}
+
+基本的に文献の引用には\pkg{BibTeX}を用いることを推奨します．
+本サンプル文書では\code{\textbackslash end\{document\}}の直前に
+\begin{verbatim}
+  \bibliographystyle{unsrt}
+  \bibliography{sample-base}
+\end{verbatim}
+を記述することで文献リストを出力しています．
+デフォルトの文献スタイルは\code{unsrt}ですが，必要に応じて変更してください．
+
+引用するには\code{\textbackslash cite\{...\}}を用います．
+例えば，YamadaらはShakedropを提案した~\cite{yamada2019shakedrop}．
+IshimaruらはGoogle Glassを用いた行動認識手法を提案した~\cite{ishimaru2014blink}，のように記述します．
+
+\section{疑似コード}
+
+疑似コードを記述するには\pkg{algorithm}環境と\pkg{algorithmic}環境を用います．
+Algorithm~\ref{alg:sample}は疑似コードのサンプルです．
+
+\begin{algorithm}
+  \caption{Compute $aˆb$}
+  \begin{algorithmic}[1]
+    \State{$c \gets 1$}
+    \While{$b \geq 0$}
+    \State{$c \gets ac$}
+    \State{$b \gets b-1$}
+    \EndWhile
+  \end{algorithmic}
+  \label{alg:sample}
+\end{algorithm}
+
+\section{その他}
+
+脚注を挿入するには\code{\textbackslash footnote\{...\}}を用います．
+例えば，Google~\footnote{\url{http://www.google.co.jp}}のように記述します．
+URLを挿入するには\code{\textbackslash url\{...\}}を用いてください．
+
+
+\section*{謝辞}
+
+本文書クラスは\pkg{jlreq}，\pkg{NLProceedings}文書クラスを元に作成されました．
+
+\section*{最終更新日}
+
+\date{\today}
+
+% 参考文献
+\bibliographystyle{unsrt}
+\bibliography{sample-base}
+
+\end{document}

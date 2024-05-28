@@ -1,0 +1,193 @@
+\documentclass[lualatex,presentation,english]{improceedings}
+
+% Packages
+
+% Macros defined by the author
+\newcommand{\pkg}[1]{\textsf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\title{\pkg{IMProceedings} Document Class Sample Document for Presentation}
+\term{Lab Presentation (First Semester)}
+\date{2024/06/01}
+\group{Learning Group}
+\grade{M1}
+\author{Yuichiro Iwashita}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\pkg{IMProceedings} document class was created for writing internal presentation manuscripts at the Intelligent Media Processing Research Group.
+In addition, options for meeting materials are also available.
+Please note that the \pkg{IMProceedings} document class is not compatible with the \pkg{imp} style file.
+
+\subsection{Document Style}
+
+You can specify the document style using the document class options.
+\begin{verbatim}
+  \documentclass[lualatex,STYLE]{improceedings}
+\end{verbatim}
+\begin{itemize}
+  \item \code{presentation}: For research presentation materials (default)
+  \item \code{meeting}: For meeting materials
+\end{itemize}
+Also, you can specify the language using the \code{english} option.
+
+\section{Fonts}
+
+In the \pkg{IMProceedings} document class, the fonts used are as follows:
+\begin{itemize}
+  \item Japanese: Haranoaji fonts
+  \item English and math: Times series fonts (\pkg{newtxtext}, \pkg{newtxmath})
+  \item Calligraphy: \pkg{mathalfa} package
+\end{itemize}
+
+\section{Header}
+
+\pkg{IMProceedings} document class displays the author's name, research group, grade, type of material, presentation date, and presentation title in the header of the first page.
+These are specified by the \code{author}, \code{group}, \code{grade}, \code{term}, \code{date}, and \code{title} commands.
+For example, the header information of this document is as follows.
+
+\begin{verbatim}
+  \title{\pkg{IMProceedings} Document ...}
+  \term{Lab Presentation Manuscript ...}
+  \date{2024/06/01}
+  \group{Learning Group}
+  \grade{M1}
+  \author{Yuichiro Iwashita}
+\end{verbatim}
+
+\section{Tables}
+
+To create tables, use the standard \LaTeX environments.
+Table~\ref{tab:sample} is a table created using the \code{table} environment and the \code{tabular} environment.
+
+\begin{table}[tbh]
+  \centering
+  \caption{Sample Table}
+  \label{tab:sample}
+  \begin{tabular}{c|c|c}
+    \hline
+    A & B & C \\
+    \hline
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+You can also use the \code{table*} environment to place a table that spans the entire width of the page.
+Table~\ref{tab:sample2} is a table created using the \code{table*} environment.
+
+\begin{table*}[tbh]
+  \centering
+  \caption{Sample Table 2}
+  \label{tab:sample2}
+  \begin{tabular}{c|c|c}
+    \hline
+    A & B & C \\
+    \hline
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    \hline
+  \end{tabular}
+\end{table*}
+
+\section{Figures}
+
+To insert figures, use the \code{figure} environment and the \code{includegraphics} command.
+Figure~\ref{fig:sample} is a figure inserted using the \code{figure} environment and the \code{includegraphics} command.
+
+\begin{figure}[tbh]
+  \centering
+  \includegraphics[width=0.5\columnwidth]{example-image-a}
+  \caption{Sample Figure}
+  \label{fig:sample}
+\end{figure}
+
+As with tables, you can use the \code{figure*} environment to place a figure that spans the entire width of the page.
+
+\begin{figure*}[tbh]
+  \centering
+  \includegraphics[width=0.5\linewidth]{example-image-b}
+  \caption{Sample Figure 2}
+  \label{fig:sample2}
+\end{figure*}
+
+\section{Equations}
+
+There are three ways to display equations: inline equations, numbered display equations, and unnumbered display equations.
+Inline equations are enclosed in \code{\$...\$}.
+For example, $Y = XW + b$ is written as \code{\$Y = XW + b\$}.
+Numbered display equations are written using the \code{equation} environment.
+
+\begin{equation}
+  Y = XW + b
+\end{equation}
+
+Unnumbered display equations are written using the \code{equation*} environment or by enclosing the equation in \code{\textbackslash [...\textbackslash ]}.
+
+\begin{equation*}
+  Y = XW + b
+\end{equation*}
+
+To display equations in bold ($\boldsymbol{a}$), use \code{\textbackslash boldsymbol\{...\}}.
+To display equations in non-italic form ($\mathbf{a}$), use \code{\textbackslash mathbf\{...\}}.
+To display equations in blackboard bold ($\mathbb{R}$), use \code{\textbackslash mathbb\{...\}}.
+To display equations in script ($\mathscr{L}$), use \code{\textbackslash mathscr\{...\}}.
+To display equations in calligraphy ($\mathcal{L}$), use \code{\textbackslash mathcal\{...\}}.
+
+\section{Citations}
+
+It is recommended to use \pkg{BibTeX} for citing references.
+In this sample document, the following code is written just before \code{\textbackslash end\{document\}} to output the list of references.
+
+\begin{verbatim}
+  \bibliographystyle{unsrt}
+  \bibliography{sample-base}
+\end{verbatim}
+
+The default bibliography style is \code{unsrt}, but you can change it as needed.
+
+To cite a reference, use \code{\textbackslash cite\{...\}}.
+For example, Yamada et al. proposed ShakeDrop~\cite{yamada2019shakedrop}.
+Ishimaru et al. proposed an activity recognition method using Google Glass~\cite{ishimaru2014blink}.
+
+\section{Pseudocode}
+
+To write pseudocode, use the \pkg{algorithm} and \pkg{algorithmic} environments.
+Algorithm~\ref{alg:sample} is a sample pseudocode.
+
+\begin{algorithm}
+  \caption{Compute $aˆb$}
+  \begin{algorithmic}[1]
+    \State{$c \gets 1$}
+    \While{$b \geq 0$}
+    \State{$c \gets ac$}
+    \State{$b \gets b-1$}
+    \EndWhile
+  \end{algorithmic}
+  \label{alg:sample}
+\end{algorithm}
+
+\section{Miscellaneous}
+
+To insert footnotes, use \code{\textbackslash footnote\{...\}}.
+For example, Google~\footnote{\url{http://www.google.co.jp}} is written as shown.
+To insert a URL, use \code{\textbackslash url\{...\}}.
+
+\section*{Acknowledgments}
+
+This document class was created based on the \pkg{jlreq} and \pkg{NLProceedings} document classes.
+
+\section*{Last Updated}
+
+\date{\today}
+
+% References
+\bibliographystyle{unsrt}
+\bibliography{sample-base}
+
+\end{document}
