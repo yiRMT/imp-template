@@ -35,6 +35,7 @@
 
 %% クラスオプション
 \bool_new:N \g_impr_english_bool
+\bool_new:N \g_impr_presentation_bool
 
 \clist_new:N \g__impr_options_clist
 \clist_new:N \g__impr_disallowed_options_clist
@@ -64,17 +65,15 @@
       { \clist_gput_right:No \g__impr_options_clist { \CurrentOption } }
   }
 
-\newif\if@presentation
-\DeclareOption{presentation}{\@presentationtrue}
-\DeclareOption{meeting}{\@presentationfalse}
-\ExecuteOptions{presentation}
-\ProcessOptions\relax
-
 % オプション実行
 \keys_define:nn { improceedings / option }
   {
     english .bool_gset:N = \g_impr_english_bool,
     english .default:n = true,
+    presentation .bool_gset:N = \g_impr_presentation_bool,
+    presentation .default:n = true,
+    meeting .bool_gset_inverse:N = \g_impr_presentation_bool,
+    meeting .default:n = true,
     unknown .code:n = \__impr_process_class_option:
   }
 \ProcessKeysOptions { improceedings / option }
@@ -86,8 +85,10 @@
 \LoadClass
   [
     paper=a4,            % 用紙サイズ
-    \if@presentation twocolumn \else onecolumn \fi, % 1段組/2段組
+    \bool_if:NTF \g_impr_presentation_bool { twocolumn } { onecolumn }, % 1段組/2段組
     fontsize=10pt,       % フォントサイズ
+    % 日本語と英語で行間を調整
+    \bool_if:NT \g_impr_english_bool { linegap=0.6\baselineskip },
     head_space=2cm,      % 天
     foot_space=3cm,      % 地
     gutter=2cm,          % のど
@@ -141,7 +142,7 @@
     \let\footnote\thanks
     {\LARGE
       {\normalsize
-        \if@presentation \@term\hskip.5em\@date \else \@date \fi
+        \bool_if:NTF \g_impr_presentation_bool { \@term\hskip.5em\@date } { \@date }
         \hfill
         \@group\hskip.5em\@grade\hskip.5em\@author
       }
